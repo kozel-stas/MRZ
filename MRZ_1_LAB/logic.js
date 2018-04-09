@@ -1,3 +1,7 @@
+/*
+created by kozel-stas 09.04.2018
+*/
+
 function sumBitNumber(a, b) {
     if (a.length > b.length) {
         b = addBitEnd(b, a.length - b.length);
@@ -54,14 +58,19 @@ function addBitEnd(a, num) {
 function shift(a, num) {
     for (var i = 0; i < num + 1; i++) {
         a = "0" + a;
+        a= a.substring(0,a.length-1);
     }
     return a;
 }
 
 function multiply(a, b, index) {
+  var ans="";
     if (index > a.length) return null;
-    if (b[index] == '0')
-        return "000000"
+    if (b[index] == '0'){
+        for(var i=0;i<a.length;i++)
+          ans+="0"
+        return ans;
+      }
     else return a;
 }
 
@@ -108,11 +117,11 @@ function createTable(num) {
 ///////////////////////////////////////////////////////////////////////////////////////////
     for (var i = 0; i < 6; i++) {
         tableHeader = document.createElement("th");
-        text = document.createTextNode("A*b[" + i + "]");
+        text = document.createTextNode("Сдвиг");
         tableHeader.appendChild(text);
         tableRow.appendChild(tableHeader);
         tableHeader = document.createElement("th");
-        text = document.createTextNode("Сдвиг");
+        text = document.createTextNode("A*b[" + i + "]");
         tableHeader.appendChild(text);
         tableRow.appendChild(tableHeader);
         tableHeader = document.createElement("th");
@@ -148,14 +157,14 @@ function insertInTable(firstNumbers, secondNumbers, P, num, numOfBit, i, j, numb
     if (numOfBit < 0 || numOfBit > 5) {
         return;
     }
-    document.getElementById(i + "." + j).innerHTML = "<p>A[" + (num + 1) + "]=" + firstNumbers[num] + "</p><p>B[" + (num + 1) + "]=" + secondNumbers[num] + "</p><p>Сумма=" + P[num] + "</p><hr>";
-    ansMultiply = multiply(firstNumbers[num], secondNumbers[num], numOfBit);
-    document.getElementById(i + "." + j).innerHTML += "<p>A[" + (num + 1) + "]*B[" + (num + 1) + "][" + numOfBit + "]=" + ansMultiply + "</p>"
+    document.getElementById(i + "." + (j)).innerHTML = "<p>A[" + (num + 1) + "]=" + firstNumbers[num] + "</p><p>B[" + (num + 1) + "]=" + secondNumbers[num] + "</p><p>Сумма=" + P[num] + "</p><hr>";
+    firstNumbers[num] = shift(firstNumbers[num], 0);
+    document.getElementById(i + "." + (j)).innerHTML += "<p>Сдвиг=" + firstNumbers[num] + "</p>";
     document.getElementById(i + "." + (j + 1)).innerHTML = "<p>A[" + (num + 1) + "]=" + firstNumbers[num] + "</p><p>B[" + (num + 1) + "]=" + secondNumbers[num] + "</p><p>Сумма=" + P[num] + "</p><hr>";
-    ansShift = shift(ansMultiply, numOfBit);
-    document.getElementById(i + "." + (j + 1)).innerHTML += "<p>Сдвиг=" + ansShift + "</p>";
+    ansMultiply = multiply(firstNumbers[num], secondNumbers[num], numOfBit);
+    document.getElementById(i + "." + (j + 1)).innerHTML += "<p>A[" + (num + 1) + "]*B[" + (num + 1) + "][" + numOfBit + "]=" + ansMultiply + "</p>"
     document.getElementById(i + "." + (j + 2)).innerHTML = "<p>A[" + (num + 1) + "]=" + firstNumbers[num] + "</p><p>B[" + (num + 1) + "]=" + secondNumbers[num] + "</p><p>Сумма=" + P[num] + "</p><hr>";
-    P[num] = sumBitNumber(P[num], ansShift);
+    P[num] = sumBitNumber(P[num], ansMultiply);
     document.getElementById(i + "." + (j + 2)).innerHTML += "<p>Cумма+A[" + (num + 1) + "]*B[" + (num + 1) + "][" + numOfBit + "]=" + P[num] + "</p>";
     if (numOfBit == 5) {
         document.getElementById((numOfBit + num + 1) + "." + 20).innerHTML = "<p>Время: " + (numOfBit + num + 1) * numberTic + " тактов</p>";
@@ -201,11 +210,13 @@ function start() {
     for (var i = 0; i < firstNumbers.length; i++) {
         firstNumbers[i] = addBit(firstNumbers[i].toString(2), 6 - firstNumbers[i].toString(2).length);
         secondNumbers[i] = addBit(secondNumbers[i].toString(2), 6 - secondNumbers[i].toString(2).length);
+        firstNumbers[i]=addBitEnd(firstNumbers[i],6);
+        secondNumbers[i]=addBitEnd(secondNumbers[i],6);
     }
     var Ans = [];
     for (var i = 0; i < firstNumbers.length; i++) {
         Ans.push("000000000000");
-        document.getElementById((i + 1) + "." + 1).innerHTML += "<p>A[" + (i + 1) + "]<sub>10</sub>=" + parseInt(firstNumbers[i], 2) + "</p><p>A[" + (i + 1) + "]<sub>2</sub>=" + firstNumbers[i] + "</p><p>B[" + (i + 1) + "]<sub>10</sub>=" + parseInt(secondNumbers[i], 2) + "</p></p>B[" + (i + 1) + "]<sub>2</sub>=" + secondNumbers[i] + "</p>";
+        document.getElementById((i + 1) + "." + 1).innerHTML += "<p>A[" + (i + 1) + "]<sub>10</sub>=" + parseInt(firstNumbers[i].substring(0,6), 2) + "</p><p>A[" + (i + 1) + "]<sub>2</sub>=" + firstNumbers[i] + "</p><p>B[" + (i + 1) + "]<sub>10</sub>=" + parseInt(secondNumbers[i].substring(0,6), 2) + "</p></p>B[" + (i + 1) + "]<sub>2</sub>=" + secondNumbers[i] + "</p>";
     }
     for (var tic = 0; tic < 5 + firstNumbers.length; tic++) {
         for (var j = 0; j < firstNumbers.length; j++) {
