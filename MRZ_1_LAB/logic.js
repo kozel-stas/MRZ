@@ -88,7 +88,7 @@ function createTable(num) {
 ////////////////////////////////////////////////////////////////////////////////
     table = document.createElement("table");
     table.setAttribute("width", width);
-    table.setAttribute("border", "1px")
+    table.setAttribute("border", "3px")
     table.setAttribute("bordercolor", "black");
     table.setAttribute("align", "center");
 //////////////////////////////////////////////////////////////////////////////////
@@ -211,7 +211,7 @@ function start() {
         firstNumbers[i] = addBit(firstNumbers[i].toString(2), 6 - firstNumbers[i].toString(2).length);
         secondNumbers[i] = addBit(secondNumbers[i].toString(2), 6 - secondNumbers[i].toString(2).length);
         firstNumbers[i]=addBitEnd(firstNumbers[i],6);
-        secondNumbers[i]=addBitEnd(secondNumbers[i],6);
+        //secondNumbers[i]=addBitEnd(secondNumbers[i],6);
     }
     var Ans = [];
     for (var i = 0; i < firstNumbers.length; i++) {
