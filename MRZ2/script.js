@@ -1,18 +1,365 @@
+var data;
+google.charts.load('current', {'packages': ['line']});
+
 var m;
 var p;
 var q;
 var n;
 var timeOperation = [];
 var numberOperation = [];
+var nodes = [];
 
 var T1;
 var Tn;
 var R;
 var Ky;
 var E;
+var kD;
+var Lavg;
 
 var A = [];
 var B = [];
+
+function drawCharts() {
+    Kyr();
+    Kyn();
+    en();
+    er();
+    Dn();
+    Dr();
+}
+
+function Kyr() {
+    dataChartR("Ky", 50, 20);
+    drawChartKyR();
+}
+
+function er() {
+    dataChartR("e", 100, 20);
+    drawChartER();
+}
+
+function Dr() {
+    dataChartR("D", 30, 20);
+    drawChartDR();
+}
+
+function Kyn() {
+    dataChartN("Ky", 20, 100);
+    drawChartKyN();
+}
+
+function en() {
+    dataChartN("e", 20, 100);
+    drawChartEN();
+}
+
+function Dn() {
+    dataChartN("D", 20, 100);
+    drawChartDN();
+}
+
+function drawChartKyN() {
+
+    var chartData = new google.visualization.DataTable();
+    chartData.addColumn('number', '');
+    for (var i = 1; i <= 20; i++)
+        chartData.addColumn('number', 'r = ' + (i).toString());
+
+    chartData.addRows(data);
+
+    var options = {
+        chart: {
+            title: 'Коэффициент ускорения от количества процессорных элементов'
+        },
+        width: 900,
+        height: 500
+    };
+
+    var div = document.createElement("div");
+    div.setAttribute("class", "Charts");
+    var body = document.querySelector("body");
+    body.appendChild(div);
+
+    var chart = new google.charts.Line(div);
+
+
+
+    chart.draw(chartData, options);
+}
+
+function drawChartEN() {
+
+    var chartData = new google.visualization.DataTable();
+    chartData.addColumn('number', '');
+    for (var i = 1; i <= 20; i++)
+        chartData.addColumn('number', 'r = ' + (i).toString());
+
+    chartData.addRows(data);
+
+    var options = {
+        chart: {
+            title: 'Эффективность от количества процессорных элементов'
+        },
+        width: 900,
+        height: 500
+    };
+
+    var div = document.createElement("div");
+    div.setAttribute("class", "Charts");
+    var body = document.querySelector("body");
+    body.appendChild(div);
+
+    var chart = new google.charts.Line(div);
+
+    chart.draw(chartData, options);
+}
+
+function drawChartDN() {
+
+    var chartData = new google.visualization.DataTable();
+    chartData.addColumn('number', '');
+    for (var i = 1; i <= 20; i++)
+        chartData.addColumn('number', 'r = ' + (i).toString());
+
+    chartData.addRows(data);
+
+    var options = {
+        chart: {
+            title: 'Коэффициент расхождения от количества процессорных элементов'
+        },
+        width: 900,
+        height: 500
+    };
+
+    var div = document.createElement("div");
+    div.setAttribute("class", "Charts");
+    var body = document.querySelector("body");
+    body.appendChild(div);
+    var chart = new google.charts.Line(div);
+
+    chart.draw(chartData, options);
+}
+
+function drawChartKyR() {
+    var chartData = new google.visualization.DataTable();
+    chartData.addColumn('number', '');
+    for (var i = 1; i <= 20; i++)
+        chartData.addColumn('number', 'n = ' + (i).toString());
+
+    chartData.addRows(data);
+
+    var options = {
+        chart: {
+            title: 'Коэффициент ускорения от ранга задачи'
+        },
+        width: 900,
+        height: 500
+    };
+
+    var div = document.createElement("div");
+    div.setAttribute("class", "Charts");
+    var body = document.querySelector("body");
+    body.appendChild(div);
+
+    var chart = new google.charts.Line(div);
+
+    chart.draw(chartData, options);
+}
+
+function drawChartER() {
+
+    var chartData = new google.visualization.DataTable();
+    chartData.addColumn('number', '');
+    for (var i = 1; i <= 20; i++)
+        chartData.addColumn('number', 'n = ' + (i).toString());
+
+    chartData.addRows(data);
+
+    var options = {
+        chart: {
+            title: 'Эффективность от ранга задачи'
+        },
+        width: 900,
+        height: 500
+    };
+
+    var div = document.createElement("div");
+    div.setAttribute("class", "Charts");
+    var body = document.querySelector("body");
+    body.appendChild(div);
+
+    var chart = new google.charts.Line(div);
+
+    chart.draw(chartData, options);
+}
+
+function drawChartDR() {
+
+    var chartData = new google.visualization.DataTable();
+    chartData.addColumn('number', '');
+    for (var i = 1; i <= 20; i++)
+        chartData.addColumn('number', 'n = ' + (i).toString());
+
+    chartData.addRows(data);
+
+    var options = {
+        chart: {
+            title: 'Коэффициент расхождения от ранга задачи'
+        },
+        width: 900,
+        height: 500
+    };
+
+    var div = document.createElement("div");
+    div.setAttribute("class", "Charts");
+    var body = document.querySelector("body");
+    body.appendChild(div);
+
+    var chart = new google.charts.Line(div);
+
+    chart.draw(chartData, options);
+}
+
+function dataChartR(str, rMax, nMax){
+    data = new Array(rMax);
+    for(var r = 0; r < rMax; r++){
+        data[r] = new Array(nMax + 1);
+        for (var n = 0; n < nMax; n++)
+            data[r][n] = buildValue(str, r, n);
+    }
+
+    for (var i = 0; i < rMax; i++){
+        data[i][0] = i + 1;
+    }
+}
+
+function dataChartN(str, rMax, nMax){
+    data = new Array(nMax);
+    for(var n = 0; n < nMax; n++){
+        data[n] = new Array(rMax + 1);
+        for (var r = 0; r < rMax; r++)
+            data[n][r] = buildValue(str, r, n);
+    }
+
+    for (var i = 0; i < nMax; i++){
+        data[i][0] = i + 1;
+    }
+}
+
+function buildValue(str, r, n){
+    var p = 1;
+    var m = 1;
+    var q = r;
+
+    var compareTime = + document.getElementById('inputT5').value;
+    var absTime = + document.getElementById('inputT4').value;
+    var multiplicationTime = + document.getElementById('inputT3').value;
+    var divisionTime = + document.getElementById('inputT2').value;
+    var additionTime = + document.getElementById('inputT1').value;
+
+
+    var firstBranch = 0;
+    var secondBranch = 0;
+    var thirdBranch = 0;
+
+    var firstNode = 0,  secondNode = 0, thirdNode = 0, fourthNode = 0, fivethNode = 0;
+
+
+    var A = new Array(p);
+    var B = new Array(m);
+    for (var i = 0; i < p; i++){
+        A[i] = new Array(m);
+        for(var j = 0; j < m; j++){
+            A[i][j] = 1;//A[i][j] = Math.random() * 2 - 1;
+        }
+    }
+
+    for (var i = 0; i < m; i++){
+        B[i] = new Array(q);
+        for(var j = 0; j < q; j++){
+            B[i][j] = 1;//B[i][j] = Math.random() * 2 - 1;
+        }
+    }
+
+    for (var k = 0; k < m; k++){
+        for (var i = 0; i < p; i++){
+            for (var j = 0; j < q; j++){
+                firstNode++;
+                if(Math.abs(A[i][k]) < Math.abs(B[k][j])){
+                    secondNode++;
+                    firstBranch++;
+                }
+                else
+                if ((A[i][k]) * (B[k][j]) == 0){
+                    thirdNode++;
+                    fourthNode++;
+                    secondBranch++;
+                }
+                else{
+                    thirdNode++;
+                    fivethNode++;
+                    thirdBranch++;
+                }
+            }
+        }
+    }
+
+    var allTime = 0;
+
+    allTime += (compareTime + 2 * absTime + multiplicationTime) * Math.ceil(firstBranch/n);
+    allTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + additionTime) * Math.ceil(secondBranch/n);
+    allTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + divisionTime * 2 + additionTime) * Math.ceil(thirdBranch/n);
+
+    var consistentTime = 0;
+
+    consistentTime += (compareTime + 2 * absTime + multiplicationTime) * firstBranch;
+    consistentTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + additionTime) * secondBranch;
+    consistentTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + divisionTime * 2 + additionTime) * thirdBranch;
+
+    var middleTime = 0;
+
+    middleTime += (compareTime + 2 * absTime) * firstNode;
+    middleTime += (multiplicationTime) * secondNode;
+    middleTime += (compareTime + multiplicationTime) * thirdNode;
+    middleTime += (additionTime) * fourthNode;
+    middleTime += (divisionTime * 2 + additionTime) * fivethNode;
+
+
+    var left = m;
+    var numAdditions = 0;
+    while (left > 1){
+        if (2 * n >= left){
+            left -= Math.floor(left / 2);
+        }
+        else{
+            left -= n;
+        }
+        numAdditions++;
+    }
+
+    allTime += additionTime * numAdditions * p * q;
+
+    consistentTime += (m - 1) * additionTime * p * q;
+
+    middleTime += additionTime * numAdditions * p * q * m;
+    middleTime /= p * m * q;
+
+    var Ky = consistentTime/allTime;
+    var e = Ky/n;
+    var D = allTime/middleTime;
+
+    if (str == 'Ky')
+        return Ky;
+
+    if (str == 'e')
+        return e;
+
+    if (str == 'D')
+        return D;
+}
+
+/////////////////////////////////////Data
 
 function main() {
 
@@ -43,6 +390,36 @@ function main() {
         }
     }
 
+    numberOperation = [];
+    nodes = [];
+    for (var i = 0; i < timeOperation.length; i++) {
+        numberOperation.push(0);
+        nodes.push(0);
+    }
+    nodes.push(0);
+
+    A = genMatrix(p, m);
+    B = genMatrix(m, q);
+
+    var D = calculateMatrixD();
+    var C = [];
+
+    for (var i = 0; i < p; i++) {
+        C.push([]);
+        for (var j = 0; j < q; j++) {
+            C[i].push(Math.round(calculateCElem(i, j, D) * 1000) / 1000);
+        }
+    }
+
+    T1 = 0;
+    for (var i = 0; i < numberOperation.length; i++) {
+        T1 += numberOperation[i] * timeOperation[i];
+    }
+
+    R = m * p * q;
+    Ky = T1 / Tn;
+    E = Ky / n;
+
     //i=0...p; j=0...q; k=0...m
     //t[0] - "+"
     //t[1] - "/"
@@ -50,29 +427,25 @@ function main() {
     //t[3] - "||"
     //t[4] - "<"
 
-    numberOperation = [];
-    for (var i = 0; i < timeOperation.length; i++) {
-        numberOperation.push(0);
-    }
+    Lavg = 0;
 
-    A = genMatrix(p, m);
-    B = genMatrix(m, q);
+    Lavg += (timeOperation[3] * 2 + timeOperation[4]) * nodes[0];
+    Lavg += (timeOperation[2]) * nodes[1];
+    Lavg += (timeOperation[4] + timeOperation[2]) * nodes[2];
+    Lavg += (timeOperation[0]) * nodes[3];
+    Lavg += (timeOperation[1] * 2 + timeOperation[0]) * nodes[4];
+    Lavg += timeOperation[0] * nodes[5];
+    Lavg /= R;
 
-    var D = calculateMatrixD();
-    var C = calculateMatrixC(D);
-
-    for (var i = 0; i < numberOperation.length; i++) {
-        T1 += numberOperation[i] * timeOperation[i];
-    }
-
-    Ky = T1 / Tn;
-    E = Ky / n;
-
+    kD = T1 / Lavg;
 
     generateTables(C, D);
 }
 
 function generateTables(C, D) {
+    document.getElementById('AllTables').parentNode.removeChild(document.getElementById('AllTables'));
+    var div = document.createElement("div");
+    div.setAttribute("id", "AllTables");
     var table = document.createElement("table");
     var tableRow = document.createElement("tr");
     var tableData = document.createElement("td");
@@ -95,9 +468,8 @@ function generateTables(C, D) {
     table.appendChild(tableRow);
 
     var body = document.querySelector("body");
-    body.appendChild(table);
 
-
+    div.appendChild(table);
     table = document.createElement("table");
     tableRow = document.createElement("tr");
     for (var k = 0; k < m; k++) {
@@ -114,7 +486,7 @@ function generateTables(C, D) {
     }
     table.appendChild(tableRow);
     body = document.querySelector("body");
-    body.appendChild(table);
+    div.appendChild(table);
 
     table = document.createElement("table");
     tableRow = document.createElement("tr");
@@ -128,7 +500,7 @@ function generateTables(C, D) {
     tableRow.appendChild(tableData);
     table.appendChild(tableRow);
     body = document.querySelector("body");
-    body.appendChild(table);
+    div.appendChild(table);
 
     var oper = ["сложение", "деление", "произведение", "модуль", "сравнение"];
 
@@ -173,6 +545,12 @@ function generateTables(C, D) {
     tableRow.appendChild(tableHeader);
     table.appendChild(tableRow);
 
+    tableHeader = document.createElement("th");
+    var text = document.createTextNode("r");
+    tableHeader.appendChild(text);
+    tableRow.appendChild(tableHeader);
+    table.appendChild(tableRow);
+
     tableRow = document.createElement("tr");
     tableData = document.createElement("td");
     tableData.innerHTML += "<p align='center'>Время операции</p>";
@@ -204,7 +582,13 @@ function generateTables(C, D) {
 
     tableData = document.createElement("td");
     tableData.setAttribute("rowspan", "2");
-    tableData.innerHTML += "<p align='center'>" + " " + "</p>";
+    tableData.innerHTML += "<p align='center'>" + kD.toFixed(3) + "</p>";
+    tableRow.appendChild(tableData);
+    table.appendChild(tableRow);
+
+    tableData = document.createElement("td");
+    tableData.setAttribute("rowspan", "2");
+    tableData.innerHTML += "<p align='center'>" + R + "</p>";
     tableRow.appendChild(tableData);
     table.appendChild(tableRow);
 
@@ -218,7 +602,8 @@ function generateTables(C, D) {
         tableRow.appendChild(tableData);
     }
     table.appendChild(tableRow);
-    body.appendChild(table);
+    div.appendChild(table);
+    body.appendChild(div);
 }
 
 function createTable(matrix, parent) {
@@ -267,7 +652,6 @@ function absMatrix(matrix) {
             t += timeOperation[3];
         }
     }
-    R += matrix.length * matrix[0].length;
     Tn += Math.ceil(t / n);
     return res;
 }
@@ -282,34 +666,43 @@ function calculateMatrixD() {
         for (var i = 0; i < p; i++) {
             res[k].push([]);
             for (var j = 0; j < q; j++) {
+                //<=>
                 numberOperation[4] += 1;
                 t += timeOperation[4];
-
-                t += timeOperation[2];
+                //*
                 numberOperation[2] += 1;
+                t += timeOperation[2];
+
+                nodes[0] += 1;
 
                 if (absA[i][k] < absB[k][j]) {
                     res[k][i].push(A[i][k] * B[k][j]);
-                    R += 1;
+
+                    nodes[1] += 1;
                 } else {
+
+                    nodes[2] += 1;
+
+                    //<=>
                     numberOperation[4] += 1;
                     t += timeOperation[4];
-                    R += 1;
-                    if (A[i][k] * B[k][j] == 0) {
+                    if (A[i][k] * B[k][j] === 0) {
                         res[k][i].push(A[i][k] + B[k][j]);
+                        //+
                         numberOperation[0] += 1;
                         t += timeOperation[0];
-                        R += 1;
+
+                        nodes[3] += 1;
                     } else {
                         res[k][i].push(A[i][k] / B[k][j] + B[k][j] / A[i][k]);
-
-                        R += 3;
+                        //+
                         numberOperation[0] += 1;
                         t += timeOperation[0];
-
+                        // /
                         numberOperation[1] += 2;
                         t += 2 * timeOperation[1];
 
+                        nodes[4] += 1;
                     }
                 }
             }
@@ -319,25 +712,35 @@ function calculateMatrixD() {
     return res;
 }
 
-function calculateMatrixC(D) {
-    var res = [];
-    var t = 0;
-    for (var i = 0; i < p; i++) {
-        res.push([]);
-        for (var j = 0; j < q; j++) {
-            var sum = 0;
-            for (var k = 0; k < m; k++) {
-                sum += D[k][i][j];
-                numberOperation[0] += 1;
-                t += timeOperation[0];
-            }
-            res[i].push(sum);
-        }
+function calculateCElem(i, j, D) {
+    var Dk = [];
+    for (var k = 0; k < D.length; k++) {
+        Dk.push(D[k][i][j]);
     }
-    Tn += Math.ceil(t / n);
-    return res;
+    return sumArray(Dk);
 }
 
+function sumArray(D) {
+    if (D.length == 1) {
+        var res = D[0];
+        return res;
+    } else {
+        var t = 0;
+        var res = [];
+        if (D.length % 2 === 1) {
+            res.push(D[D.length - 1]);
+        }
+        for (var i = 0; i < (D.length - D.length % 2); i += 2) {
+            res.push(D[i] + D[i + 1]);
+            numberOperation[0] += 1;
+            t += timeOperation[0];
+
+            nodes[5] += 1;
+        }
+        Tn += Math.ceil(t / n);
+        return (sumArray(res));
+    }
+}
 
 
 

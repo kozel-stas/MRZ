@@ -5,6 +5,7 @@
     <title>MRZ LAB 2</title>
 </head>
 <body>
+<script src="chart.js"></script>
 <script src="script.js"></script>
 <h1>Вариант 2</h1>
 <p>c[i][j] = ∑<sub>k</sub>d[k][i][j]</p>
@@ -16,7 +17,7 @@
             <p>m=<input type="text" id="inputM" value="2"></p>
             <p>p=<input type="text" id="inputP" value="2"></p>
             <p>q=<input type="text" id="inputQ" value="2"></p>
-            <p>n=<input type="text" id="inputN" value="2"></p>
+            <p>n=<input type="text" id="inputN" value="3"></p>
         </td>
         <td>
             <p >t1=<input type="text" id="inputT1" value="1"> - сложение</p>
@@ -28,5 +29,13 @@
     </tr>
 </table>
 <p><button onclick="main()">start</button></p>
+<p><button onclick="drawCharts()">DrawCharts</button></p>
+<div id="AllTables"></div>
+<style>
+    .Charts {
+        width: 1100px;
+        height: 700px;
+    }
+</style>
 </body>
 </html>
