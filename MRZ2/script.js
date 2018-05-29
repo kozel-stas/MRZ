@@ -84,7 +84,6 @@ function drawChartKyN() {
     var chart = new google.charts.Line(div);
 
 
-
     chart.draw(chartData, options);
 }
 
@@ -221,82 +220,81 @@ function drawChartDR() {
     chart.draw(chartData, options);
 }
 
-function dataChartR(str, rMax, nMax){
+function dataChartR(str, rMax, nMax) {
     data = new Array(rMax);
-    for(var r = 0; r < rMax; r++){
+    for (var r = 0; r < rMax; r++) {
         data[r] = new Array(nMax + 1);
         for (var n = 0; n < nMax; n++)
             data[r][n] = buildValue(str, r, n);
     }
 
-    for (var i = 0; i < rMax; i++){
+    for (var i = 0; i < rMax; i++) {
         data[i][0] = i + 1;
     }
 }
 
-function dataChartN(str, rMax, nMax){
+function dataChartN(str, rMax, nMax) {
     data = new Array(nMax);
-    for(var n = 0; n < nMax; n++){
+    for (var n = 0; n < nMax; n++) {
         data[n] = new Array(rMax + 1);
         for (var r = 0; r < rMax; r++)
             data[n][r] = buildValue(str, r, n);
     }
 
-    for (var i = 0; i < nMax; i++){
+    for (var i = 0; i < nMax; i++) {
         data[i][0] = i + 1;
     }
 }
 
-function buildValue(str, r, n){
+function buildValue(str, r, n) {
     var p = 1;
     var m = 1;
     var q = r;
 
-    var compareTime = + document.getElementById('inputT5').value;
-    var absTime = + document.getElementById('inputT4').value;
-    var multiplicationTime = + document.getElementById('inputT3').value;
-    var divisionTime = + document.getElementById('inputT2').value;
-    var additionTime = + document.getElementById('inputT1').value;
+    var compareTime = +document.getElementById('inputT5').value;
+    var absTime = +document.getElementById('inputT4').value;
+    var multiplicationTime = +document.getElementById('inputT3').value;
+    var divisionTime = +document.getElementById('inputT2').value;
+    var additionTime = +document.getElementById('inputT1').value;
 
 
     var firstBranch = 0;
     var secondBranch = 0;
     var thirdBranch = 0;
 
-    var firstNode = 0,  secondNode = 0, thirdNode = 0, fourthNode = 0, fivethNode = 0;
+    var firstNode = 0, secondNode = 0, thirdNode = 0, fourthNode = 0, fivethNode = 0;
 
 
     var A = new Array(p);
     var B = new Array(m);
-    for (var i = 0; i < p; i++){
+    for (var i = 0; i < p; i++) {
         A[i] = new Array(m);
-        for(var j = 0; j < m; j++){
+        for (var j = 0; j < m; j++) {
             A[i][j] = 1;//A[i][j] = Math.random() * 2 - 1;
         }
     }
 
-    for (var i = 0; i < m; i++){
+    for (var i = 0; i < m; i++) {
         B[i] = new Array(q);
-        for(var j = 0; j < q; j++){
+        for (var j = 0; j < q; j++) {
             B[i][j] = 1;//B[i][j] = Math.random() * 2 - 1;
         }
     }
 
-    for (var k = 0; k < m; k++){
-        for (var i = 0; i < p; i++){
-            for (var j = 0; j < q; j++){
+    for (var k = 0; k < m; k++) {
+        for (var i = 0; i < p; i++) {
+            for (var j = 0; j < q; j++) {
                 firstNode++;
-                if(Math.abs(A[i][k]) < Math.abs(B[k][j])){
+                if (Math.abs(A[i][k]) < Math.abs(B[k][j])) {
                     secondNode++;
                     firstBranch++;
                 }
-                else
-                if ((A[i][k]) * (B[k][j]) == 0){
+                else if ((A[i][k]) * (B[k][j]) == 0) {
                     thirdNode++;
                     fourthNode++;
                     secondBranch++;
                 }
-                else{
+                else {
                     thirdNode++;
                     fivethNode++;
                     thirdBranch++;
@@ -307,9 +305,9 @@ function buildValue(str, r, n){
 
     var allTime = 0;
 
-    allTime += (compareTime + 2 * absTime + multiplicationTime) * Math.ceil(firstBranch/n);
-    allTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + additionTime) * Math.ceil(secondBranch/n);
-    allTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + divisionTime * 2 + additionTime) * Math.ceil(thirdBranch/n);
+    allTime += (compareTime + 2 * absTime + multiplicationTime) * Math.ceil(firstBranch / n);
+    allTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + additionTime) * Math.ceil(secondBranch / n);
+    allTime += (compareTime + 2 * absTime + multiplicationTime + compareTime + divisionTime * 2 + additionTime) * Math.ceil(thirdBranch / n);
 
     var consistentTime = 0;
 
@@ -328,26 +326,26 @@ function buildValue(str, r, n){
 
     var left = m;
     var numAdditions = 0;
-    while (left > 1){
-        if (2 * n >= left){
+    while (left > 1) {
+        if (2 * n >= left) {
             left -= Math.floor(left / 2);
         }
-        else{
+        else {
             left -= n;
         }
         numAdditions++;
     }
 
-    allTime += additionTime * numAdditions * p * q;
+    allTime += Math.ceil(additionTime * numAdditions * p * q / n);
 
-    consistentTime += (m - 1) * additionTime * p * q;
+    consistentTime += additionTime * (m - 1) * p * q;
 
-    middleTime += additionTime * numAdditions * p * q * m;
+    middleTime += additionTime * numAdditions * p * q;
     middleTime /= p * m * q;
 
-    var Ky = consistentTime/allTime;
-    var e = Ky/n;
-    var D = allTime/middleTime;
+    var Ky = consistentTime / allTime;
+    var e = Ky / n;
+    var D = allTime / middleTime;
 
     if (str == 'Ky')
         return Ky;
@@ -404,6 +402,11 @@ function main() {
     var D = calculateMatrixD();
     var C = [];
 
+    T1 = 0;
+    for (var i = 0; i < numberOperation.length; i++) {
+        T1 += numberOperation[i] * timeOperation[i];
+    }
+
     for (var i = 0; i < p; i++) {
         C.push([]);
         for (var j = 0; j < q; j++) {
@@ -411,12 +414,9 @@ function main() {
         }
     }
 
-    T1 = 0;
-    for (var i = 0; i < numberOperation.length; i++) {
-        T1 += numberOperation[i] * timeOperation[i];
-    }
+    T1 += timeOperation[0] * p * (m - 1) * q;
 
-    R = m * p * q;
+    R = p * m * q;
     Ky = T1 / Tn;
     E = Ky / n;
 

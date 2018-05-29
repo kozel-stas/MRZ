@@ -15,9 +15,10 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="418" column="18" lean-forward="true" selection-start-line="418" selection-start-column="18" selection-end-line="418" selection-end-column="18" />
+            <state relative-caret-position="445">
+              <caret line="442" column="1" lean-forward="true" selection-start-line="442" selection-start-column="1" selection-end-line="442" selection-end-column="1" />
               <folding>
+                <element signature="n#!!block;n#f#0" />
                 <element signature="n#!!block;n#Kyr#0" />
                 <element signature="n#!!block;n#er#0" />
                 <element signature="n#!!block;n#Dr#0" />
@@ -32,12 +33,12 @@
                 <element signature="n#!!block;n#drawChartDR#0" />
                 <element signature="n#!!block;n#dataChartR#0" />
                 <element signature="n#!!block;n#dataChartN#0" />
-                <element signature="n#!!block;n#buildValue#0" />
                 <element signature="e#7618#7725#0" />
                 <element signature="n#!!block;n#generateTables#0" />
                 <element signature="n#!!block;n#createTable#0" />
                 <element signature="n#!!block;n#genMatrix#0" />
                 <element signature="n#!!block;n#absMatrix#0" />
+                <element signature="n#!!block;n#calculateMatrixD#0" />
                 <element signature="n#!!block;n#calculateCElem#0" />
                 <element signature="n#!!block;n#sumArray#0" />
               </folding>
@@ -103,7 +104,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="993" />
     <option name="width" value="935" />
     <option name="height" value="613" />
@@ -207,15 +208,15 @@
       <workItem from="1526798180424" duration="10862000" />
       <workItem from="1527330725543" duration="1285000" />
       <workItem from="1527402410622" duration="632000" />
-      <workItem from="1527611228673" duration="14025000" />
+      <workItem from="1527611228673" duration="15046000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26909000" />
+    <option name="totallyTimeSpent" value="27930000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="878" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.05859375" />
@@ -264,7 +265,7 @@
           <line>134</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -280,6 +281,7 @@
         <state relative-caret-position="1394">
           <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
           <folding>
+            <element signature="n#!!block;n#f#0" />
             <element signature="n#!!block;n#Kyr#0" />
             <element signature="n#!!block;n#er#0" />
             <element signature="n#!!block;n#Dr#0" />
@@ -294,12 +296,12 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="n#!!block;n#buildValue#0" />
             <element signature="e#7618#7725#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
+            <element signature="n#!!block;n#calculateMatrixD#0" />
             <element signature="n#!!block;n#calculateCElem#0" />
             <element signature="n#!!block;n#sumArray#0" />
           </folding>
@@ -325,6 +327,7 @@
         <state relative-caret-position="1394">
           <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
           <folding>
+            <element signature="n#!!block;n#f#0" />
             <element signature="n#!!block;n#Kyr#0" />
             <element signature="n#!!block;n#er#0" />
             <element signature="n#!!block;n#Dr#0" />
@@ -339,12 +342,12 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="n#!!block;n#buildValue#0" />
             <element signature="e#7618#7725#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
+            <element signature="n#!!block;n#calculateMatrixD#0" />
             <element signature="n#!!block;n#calculateCElem#0" />
             <element signature="n#!!block;n#sumArray#0" />
           </folding>
@@ -370,6 +373,7 @@
         <state relative-caret-position="2295">
           <caret line="135" column="45" lean-forward="true" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
           <folding>
+            <element signature="n#!!block;n#f#0" />
             <element signature="n#!!block;n#Kyr#0" />
             <element signature="n#!!block;n#er#0" />
             <element signature="n#!!block;n#Dr#0" />
@@ -384,12 +388,12 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="n#!!block;n#buildValue#0" />
             <element signature="e#7618#7725#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
+            <element signature="n#!!block;n#calculateMatrixD#0" />
             <element signature="n#!!block;n#calculateCElem#0" />
             <element signature="n#!!block;n#sumArray#0" />
           </folding>
@@ -439,9 +443,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="418" column="18" lean-forward="true" selection-start-line="418" selection-start-column="18" selection-end-line="418" selection-end-column="18" />
+        <state relative-caret-position="445">
+          <caret line="442" column="1" lean-forward="true" selection-start-line="442" selection-start-column="1" selection-end-line="442" selection-end-column="1" />
           <folding>
+            <element signature="n#!!block;n#f#0" />
             <element signature="n#!!block;n#Kyr#0" />
             <element signature="n#!!block;n#er#0" />
             <element signature="n#!!block;n#Dr#0" />
@@ -456,12 +461,12 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="n#!!block;n#buildValue#0" />
             <element signature="e#7618#7725#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
+            <element signature="n#!!block;n#calculateMatrixD#0" />
             <element signature="n#!!block;n#calculateCElem#0" />
             <element signature="n#!!block;n#sumArray#0" />
           </folding>
