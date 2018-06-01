@@ -15,14 +15,10 @@
       <file leaf-file-name="script.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="445">
-              <caret line="442" column="1" lean-forward="true" selection-start-line="442" selection-start-column="1" selection-end-line="442" selection-end-column="1" />
+            <state relative-caret-position="17">
+              <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
               <folding>
-                <element signature="n#!!block;n#f#0" />
-                <element signature="n#!!block;n#Kyr#0" />
-                <element signature="n#!!block;n#er#0" />
-                <element signature="n#!!block;n#Dr#0" />
-                <element signature="n#!!block;n#Kyn#0" />
+                <element signature="n#!!block;n#drawCharts#0" />
                 <element signature="n#!!block;n#en#0" />
                 <element signature="n#!!block;n#Dn#0" />
                 <element signature="n#!!block;n#drawChartKyN#0" />
@@ -33,14 +29,12 @@
                 <element signature="n#!!block;n#drawChartDR#0" />
                 <element signature="n#!!block;n#dataChartR#0" />
                 <element signature="n#!!block;n#dataChartN#0" />
-                <element signature="e#7618#7725#0" />
+                <element signature="n#!!block;n#genMatrixTest#0" />
                 <element signature="n#!!block;n#generateTables#0" />
                 <element signature="n#!!block;n#createTable#0" />
                 <element signature="n#!!block;n#genMatrix#0" />
                 <element signature="n#!!block;n#absMatrix#0" />
                 <element signature="n#!!block;n#calculateMatrixD#0" />
-                <element signature="n#!!block;n#calculateCElem#0" />
-                <element signature="n#!!block;n#sumArray#0" />
               </folding>
             </state>
           </provider>
@@ -49,20 +43,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="file.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Lab2/Матрицы_files/file.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="464" lean-forward="true" selection-start-line="327" selection-end-line="464" />
-              <folding>
-                <element signature="n#!!block;n#dataChartN#0" />
-              </folding>
+            <state relative-caret-position="377">
+              <caret line="26" column="49" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -82,6 +64,8 @@
       <find>r</find>
       <find>table.setAttribute(&quot;align&quot;, &quot;center&quot;);</find>
       <find>Dn</find>
+      <find>Tn</find>
+      <find>Time</find>
     </findStrings>
     <replaceStrings>
       <replace>R</replace>
@@ -91,6 +75,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/loader.js" />
+        <option value="$PROJECT_DIR$/../../Lab2/Матрицы_files/file.js" />
         <option value="$PROJECT_DIR$/script.js" />
       </list>
     </option>
@@ -105,9 +91,9 @@
     <packageJsonPaths />
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="993" />
+    <option name="x" value="991" />
     <option name="width" value="935" />
-    <option name="height" value="613" />
+    <option name="height" value="615" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -134,7 +120,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Lab2_mrz" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="project.propCompiler" />
@@ -208,27 +194,28 @@
       <workItem from="1526798180424" duration="10862000" />
       <workItem from="1527330725543" duration="1285000" />
       <workItem from="1527402410622" duration="632000" />
-      <workItem from="1527611228673" duration="15046000" />
+      <workItem from="1527611228673" duration="21110000" />
+      <workItem from="1527750521870" duration="4309000" />
+      <workItem from="1527836913989" duration="2553000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27930000" />
+    <option name="totallyTimeSpent" value="40856000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.05859375" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.07356771" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Favorites" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info id="Designer" order="2" />
       <window_info anchor="right" id="Palette" order="3" />
       <window_info id="Image Layers" order="3" />
@@ -242,7 +229,7 @@
       <window_info id="npm" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32941177" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info id="Gulp" order="7" side_tool="true" />
       <window_info anchor="right" id="Database" order="3" />
@@ -265,10 +252,72 @@
           <line>134</line>
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="4" />
+      <option name="time" value="8" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12189">
+          <caret line="717" column="37" lean-forward="true" selection-start-line="717" selection-start-column="37" selection-end-line="717" selection-end-column="37" />
+          <folding>
+            <element signature="n#!!block;n#drawCharts#0" />
+            <element signature="n#!!block;n#en#0" />
+            <element signature="n#!!block;n#Dn#0" />
+            <element signature="n#!!block;n#drawChartKyN#0" />
+            <element signature="n#!!block;n#drawChartEN#0" />
+            <element signature="n#!!block;n#drawChartDN#0" />
+            <element signature="n#!!block;n#drawChartKyR#0" />
+            <element signature="n#!!block;n#drawChartER#0" />
+            <element signature="n#!!block;n#drawChartDR#0" />
+            <element signature="n#!!block;n#dataChartR#0" />
+            <element signature="n#!!block;n#dataChartN#0" />
+            <element signature="n#!!block;n#genMatrixTest#0" />
+            <element signature="n#!!block;n#generateTables#0" />
+            <element signature="n#!!block;n#createTable#0" />
+            <element signature="n#!!block;n#genMatrix#0" />
+            <element signature="n#!!block;n#absMatrix#0" />
+            <element signature="n#!!block;n#calculateMatrixD#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12461">
+          <caret line="733" column="33" lean-forward="true" selection-start-line="733" selection-start-column="33" selection-end-line="733" selection-end-column="33" />
+          <folding>
+            <element signature="n#!!block;n#drawCharts#0" />
+            <element signature="n#!!block;n#en#0" />
+            <element signature="n#!!block;n#Dn#0" />
+            <element signature="n#!!block;n#drawChartKyN#0" />
+            <element signature="n#!!block;n#drawChartEN#0" />
+            <element signature="n#!!block;n#drawChartDN#0" />
+            <element signature="n#!!block;n#drawChartKyR#0" />
+            <element signature="n#!!block;n#drawChartER#0" />
+            <element signature="n#!!block;n#drawChartDR#0" />
+            <element signature="n#!!block;n#dataChartR#0" />
+            <element signature="n#!!block;n#dataChartN#0" />
+            <element signature="n#!!block;n#genMatrixTest#0" />
+            <element signature="n#!!block;n#generateTables#0" />
+            <element signature="n#!!block;n#createTable#0" />
+            <element signature="n#!!block;n#genMatrix#0" />
+            <element signature="n#!!block;n#absMatrix#0" />
+            <element signature="n#!!block;n#calculateMatrixD#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -281,11 +330,7 @@
         <state relative-caret-position="1394">
           <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
           <folding>
-            <element signature="n#!!block;n#f#0" />
-            <element signature="n#!!block;n#Kyr#0" />
-            <element signature="n#!!block;n#er#0" />
-            <element signature="n#!!block;n#Dr#0" />
-            <element signature="n#!!block;n#Kyn#0" />
+            <element signature="n#!!block;n#drawCharts#0" />
             <element signature="n#!!block;n#en#0" />
             <element signature="n#!!block;n#Dn#0" />
             <element signature="n#!!block;n#drawChartKyN#0" />
@@ -296,25 +341,17 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="e#7618#7725#0" />
+            <element signature="n#!!block;n#genMatrixTest#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
             <element signature="n#!!block;n#calculateMatrixD#0" />
-            <element signature="n#!!block;n#calculateCElem#0" />
-            <element signature="n#!!block;n#sumArray#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../2 лабораторная/file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2312">
-          <caret line="136" column="25" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../2 лабораторная/file.js" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -327,11 +364,7 @@
         <state relative-caret-position="1394">
           <caret line="82" column="19" selection-start-line="82" selection-start-column="19" selection-end-line="82" selection-end-column="19" />
           <folding>
-            <element signature="n#!!block;n#f#0" />
-            <element signature="n#!!block;n#Kyr#0" />
-            <element signature="n#!!block;n#er#0" />
-            <element signature="n#!!block;n#Dr#0" />
-            <element signature="n#!!block;n#Kyn#0" />
+            <element signature="n#!!block;n#drawCharts#0" />
             <element signature="n#!!block;n#en#0" />
             <element signature="n#!!block;n#Dn#0" />
             <element signature="n#!!block;n#drawChartKyN#0" />
@@ -342,25 +375,17 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="e#7618#7725#0" />
+            <element signature="n#!!block;n#genMatrixTest#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
             <element signature="n#!!block;n#calculateMatrixD#0" />
-            <element signature="n#!!block;n#calculateCElem#0" />
-            <element signature="n#!!block;n#sumArray#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../2 лабораторная/file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2516">
-          <caret line="148" column="1" lean-forward="true" selection-start-line="148" selection-start-column="1" selection-end-line="148" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../2 лабораторная/file.js" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
@@ -373,11 +398,7 @@
         <state relative-caret-position="2295">
           <caret line="135" column="45" lean-forward="true" selection-start-line="135" selection-start-column="45" selection-end-line="135" selection-end-column="45" />
           <folding>
-            <element signature="n#!!block;n#f#0" />
-            <element signature="n#!!block;n#Kyr#0" />
-            <element signature="n#!!block;n#er#0" />
-            <element signature="n#!!block;n#Dr#0" />
-            <element signature="n#!!block;n#Kyn#0" />
+            <element signature="n#!!block;n#drawCharts#0" />
             <element signature="n#!!block;n#en#0" />
             <element signature="n#!!block;n#Dn#0" />
             <element signature="n#!!block;n#drawChartKyN#0" />
@@ -388,14 +409,12 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="e#7618#7725#0" />
+            <element signature="n#!!block;n#genMatrixTest#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
             <element signature="n#!!block;n#calculateMatrixD#0" />
-            <element signature="n#!!block;n#calculateCElem#0" />
-            <element signature="n#!!block;n#sumArray#0" />
           </folding>
         </state>
       </provider>
@@ -407,13 +426,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../2 лабораторная/file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="136" column="25" selection-start-line="136" selection-start-column="25" selection-end-line="136" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/../../2 лабораторная/file.js" />
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.dom.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -424,33 +437,21 @@
     <entry file="file://$PROJECT_DIR$/chart.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Lab2/Матрицы_files/file.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="464" lean-forward="true" selection-start-line="327" selection-end-line="464" />
-          <folding>
-            <element signature="n#!!block;n#dataChartN#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/loader.js" />
+    <entry file="file://$PROJECT_DIR$/../../Lab2/Матрицы_files/file.js" />
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="49" />
+        <state relative-caret-position="377">
+          <caret line="26" column="49" lean-forward="true" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="49" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="442" column="1" lean-forward="true" selection-start-line="442" selection-start-column="1" selection-end-line="442" selection-end-column="1" />
+        <state relative-caret-position="17">
+          <caret line="287" column="21" selection-start-line="287" selection-start-column="21" selection-end-line="287" selection-end-column="21" />
           <folding>
-            <element signature="n#!!block;n#f#0" />
-            <element signature="n#!!block;n#Kyr#0" />
-            <element signature="n#!!block;n#er#0" />
-            <element signature="n#!!block;n#Dr#0" />
-            <element signature="n#!!block;n#Kyn#0" />
+            <element signature="n#!!block;n#drawCharts#0" />
             <element signature="n#!!block;n#en#0" />
             <element signature="n#!!block;n#Dn#0" />
             <element signature="n#!!block;n#drawChartKyN#0" />
@@ -461,14 +462,12 @@
             <element signature="n#!!block;n#drawChartDR#0" />
             <element signature="n#!!block;n#dataChartR#0" />
             <element signature="n#!!block;n#dataChartN#0" />
-            <element signature="e#7618#7725#0" />
+            <element signature="n#!!block;n#genMatrixTest#0" />
             <element signature="n#!!block;n#generateTables#0" />
             <element signature="n#!!block;n#createTable#0" />
             <element signature="n#!!block;n#genMatrix#0" />
             <element signature="n#!!block;n#absMatrix#0" />
             <element signature="n#!!block;n#calculateMatrixD#0" />
-            <element signature="n#!!block;n#calculateCElem#0" />
-            <element signature="n#!!block;n#sumArray#0" />
           </folding>
         </state>
       </provider>

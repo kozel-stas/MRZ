@@ -10,6 +10,7 @@ var numberOperation = [];
 var nodes = [];
 
 var T1;
+var Time;
 var Tn;
 var R;
 var Ky;
@@ -30,32 +31,44 @@ function drawCharts() {
 }
 
 function Kyr() {
-    dataChartR("Ky", 50, 20);
+    dataChartR("Ky", 50, 20, true);
+    drawChartKyR();
+    dataChartR("Ky", 50, 20, false);
     drawChartKyR();
 }
 
 function er() {
-    dataChartR("e", 100, 20);
+    dataChartR("e", 100, 20, true);
+    drawChartER();
+    dataChartR("e", 100, 20, false);
     drawChartER();
 }
 
 function Dr() {
-    dataChartR("D", 30, 20);
+    dataChartR("D", 30, 20, true);
+    drawChartDR();
+    dataChartR("D", 30, 20, false);
     drawChartDR();
 }
 
 function Kyn() {
-    dataChartN("Ky", 20, 100);
+    dataChartN("Ky", 20, 100, true);
+    drawChartKyN();
+    dataChartN("Ky", 20, 100, false);
     drawChartKyN();
 }
 
 function en() {
-    dataChartN("e", 20, 100);
+    dataChartN("e", 20, 100, true);
+    drawChartEN();
+    dataChartN("e", 20, 100, false);
     drawChartEN();
 }
 
 function Dn() {
-    dataChartN("D", 20, 100);
+    dataChartN("D", 20, 100, true);
+    drawChartDN();
+    dataChartN("D", 20, 100, false);
     drawChartDN();
 }
 
@@ -220,33 +233,33 @@ function drawChartDR() {
     chart.draw(chartData, options);
 }
 
-function dataChartR(str, rMax, nMax) {
-    data = new Array(rMax);
-    for (var r = 0; r < rMax; r++) {
-        data[r] = new Array(nMax + 1);
-        for (var n = 0; n < nMax; n++)
-            data[r][n] = buildValue(str, r, n);
+function dataChartR(str, rmax, nmax, flag) {
+    data = new Array(rmax);
+    for (var r = 0; r < rmax; r++) {
+        data[r] = new Array(nmax + 1);
+        for (var n = 0; n < nmax; n++)
+            data[r][n] = buildValue(str, r, n, flag);
     }
 
-    for (var i = 0; i < rMax; i++) {
+    for (var i = 0; i < rmax; i++) {
         data[i][0] = i + 1;
     }
 }
 
-function dataChartN(str, rMax, nMax) {
-    data = new Array(nMax);
-    for (var n = 0; n < nMax; n++) {
-        data[n] = new Array(rMax + 1);
-        for (var r = 0; r < rMax; r++)
-            data[n][r] = buildValue(str, r, n);
+function dataChartN(str, rmax, nmax, flag) {
+    data = new Array(nmax);
+    for (var n = 0; n < nmax; n++) {
+        data[n] = new Array(rmax + 1);
+        for (var r = 0; r < rmax; r++)
+            data[n][r] = buildValue(str, r, n, flag);
     }
 
-    for (var i = 0; i < nMax; i++) {
+    for (var i = 0; i < nmax; i++) {
         data[i][0] = i + 1;
     }
 }
 
-function buildValue(str, r, n) {
+function buildValue(str, r, n, flag) {
     var p = 1;
     var m = 1;
     var q = r;
@@ -265,20 +278,14 @@ function buildValue(str, r, n) {
     var firstNode = 0, secondNode = 0, thirdNode = 0, fourthNode = 0, fivethNode = 0;
 
 
-    var A = new Array(p);
-    var B = new Array(m);
-    for (var i = 0; i < p; i++) {
-        A[i] = new Array(m);
-        for (var j = 0; j < m; j++) {
-            A[i][j] = 1;//A[i][j] = Math.random() * 2 - 1;
-        }
-    }
-
-    for (var i = 0; i < m; i++) {
-        B[i] = new Array(q);
-        for (var j = 0; j < q; j++) {
-            B[i][j] = 1;//B[i][j] = Math.random() * 2 - 1;
-        }
+    var A = [];
+    var B =[];
+    if(flag){
+        A = genMatrixTest(p,m);
+        B = genMatrixTest(m,q);
+    } else {
+        A = genMatrix(p,m);
+        B = genMatrix(m,q);
     }
 
     for (var k = 0; k < m; k++) {
@@ -336,11 +343,11 @@ function buildValue(str, r, n) {
         numAdditions++;
     }
 
-    allTime += Math.ceil(additionTime * numAdditions * p * q / n);
+    allTime += additionTime * numAdditions * p * q;
 
-    consistentTime += additionTime * (m - 1) * p * q;
+    consistentTime += (m - 1) * additionTime * p * q;
 
-    middleTime += additionTime * numAdditions * p * q;
+    middleTime += additionTime * numAdditions * p * q * m;
     middleTime /= p * m * q;
 
     var Ky = consistentTime / allTime;
@@ -357,10 +364,20 @@ function buildValue(str, r, n) {
         return D;
 }
 
+function genMatrixTest(row, column) {
+    var res = [];
+    for (var i = 0; i < row; i++) {
+        res.push([]);
+        for (var j = 0; j < column; j++) {
+            res[i].push(1);
+        }
+    }
+    return res;
+}
+
 /////////////////////////////////////Data
 
 function main() {
-
     T1 = 0;
     Tn = 0;
     R = 0;
@@ -395,17 +412,12 @@ function main() {
         nodes.push(0);
     }
     nodes.push(0);
-
+    Time = 0;
     A = genMatrix(p, m);
     B = genMatrix(m, q);
-
     var D = calculateMatrixD();
-    var C = [];
 
-    T1 = 0;
-    for (var i = 0; i < numberOperation.length; i++) {
-        T1 += numberOperation[i] * timeOperation[i];
-    }
+    var C = [];
 
     for (var i = 0; i < p; i++) {
         C.push([]);
@@ -413,11 +425,8 @@ function main() {
             C[i].push(Math.round(calculateCElem(i, j, D) * 1000) / 1000);
         }
     }
-
-    T1 += timeOperation[0] * p * (m - 1) * q;
-
     R = p * m * q;
-    Ky = T1 / Tn;
+    Ky = Time / Tn;
     E = Ky / n;
 
     //i=0...p; j=0...q; k=0...m
@@ -434,10 +443,10 @@ function main() {
     Lavg += (timeOperation[4] + timeOperation[2]) * nodes[2];
     Lavg += (timeOperation[0]) * nodes[3];
     Lavg += (timeOperation[1] * 2 + timeOperation[0]) * nodes[4];
-    Lavg += timeOperation[0] * nodes[5];
+    Lavg += nodes[5];
     Lavg /= R;
 
-    kD = T1 / Lavg;
+    kD = Tn / Lavg;
 
     generateTables(C, D);
 }
@@ -562,7 +571,7 @@ function generateTables(C, D) {
     }
     tableData = document.createElement("td");
     tableData.setAttribute("rowspan", "2");
-    tableData.innerHTML += "<p align='center'>" + T1 + "</p>";
+    tableData.innerHTML += "<p align='center'>" + Time + "</p>";
     tableRow.appendChild(tableData);
 
     tableData = document.createElement("td");
@@ -653,6 +662,7 @@ function absMatrix(matrix) {
         }
     }
     Tn += Math.ceil(t / n);
+    Time += t;
     return res;
 }
 
@@ -708,6 +718,7 @@ function calculateMatrixD() {
             }
         }
     }
+    Time += t;
     Tn += Math.ceil(t / n);
     return res;
 }
@@ -726,18 +737,30 @@ function sumArray(D) {
         return res;
     } else {
         var t = 0;
+        var nIter = 0;
         var res = [];
         if (D.length % 2 === 1) {
             res.push(D[D.length - 1]);
         }
         for (var i = 0; i < (D.length - D.length % 2); i += 2) {
+            if (nIter === n) {
+                for (var j = i; j < D.length; j++) {
+                    res.push(D[j]);
+                }
+                break;
+            }
+
             res.push(D[i] + D[i + 1]);
+
+            nIter += 1;
+
             numberOperation[0] += 1;
             t += timeOperation[0];
 
-            nodes[5] += 1;
         }
+        Time += t;
         Tn += Math.ceil(t / n);
+        nodes[5] += Math.ceil(t / n);
         return (sumArray(res));
     }
 }
